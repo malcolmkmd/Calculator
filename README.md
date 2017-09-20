@@ -1,7 +1,7 @@
 # Calculator
 ------------------------------------------------------
 
-<img src="Calculator/Resources/preview.png" width="525"/>
+<img src="Calculator/Resources/preview.gif" width="525"/>
 
 design by: Malcolm Kumwenda
 
