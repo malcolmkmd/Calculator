@@ -32,7 +32,6 @@ class CalculatorVC: UIViewController {
         }
     }
     
-    
     fileprivate lazy var topView: UIView = {
         let v = UIView()
         v.backgroundColor = .clear
@@ -117,9 +116,7 @@ class CalculatorVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        safeArea = view.safeAreaLayoutGuide
         configureView()
-        setupSelectors()
     }
     
     func createNumberButtons(numbers: [Int]) -> [CalculatorBtn] {
@@ -131,10 +128,12 @@ class CalculatorVC: UIViewController {
     }
     
     func configureView(){
+        safeArea = view.safeAreaLayoutGuide
         setupViews()
         setupButtons()
         setupResultLabel()
         setupOperationsTableView()
+        setupSelectors()
     }
     
     func setupViews(){
@@ -153,6 +152,18 @@ class CalculatorVC: UIViewController {
             make.left.right.equalTo(safeArea)
             make.height.equalTo(safeArea).multipliedBy(0.6)
         }
+        
+        addGradientMask(to: self.view)
+    }
+    
+    func addGradientMask(to view: UIView){
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 0.07)
+        
+        view.layer.mask = gradient
     }
     
     func setupButtons(){
@@ -367,6 +378,8 @@ extension CalculatorVC {
                 currentText = currentText.appending(sender.operation)
             }
         }
+        
+        tableView.scrollsToTop = true
     }
     
     func setupSelectors(){
@@ -419,6 +432,7 @@ extension CalculatorVC: UITableViewDelegate, UITableViewDataSource {
             let operation = cell.label.text else { return }
         currentText = operation
     }
+   
 }
 
 
