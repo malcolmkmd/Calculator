@@ -352,6 +352,7 @@ extension CalculatorVC {
         if sender.tag == OperatorType.equal.action {
             doMath()
         }else if sender.tag == OperatorType.clear.action {
+            if currentText == "0.0" { operations.removeAll() }
             currentText = "0.0"
         }else if sender.tag == OperatorType.cancel.action {
             currentText = "\(currentText.dropLast())"
