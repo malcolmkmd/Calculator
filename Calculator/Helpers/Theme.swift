@@ -9,18 +9,14 @@
 import UIKit.UIColor
 
 enum Theme {
-    case grey, purple, teal, blue, red, light, btn, orange
+    case white, blue, bg, red
     
     var color: UIColor {
         switch self {
-        case .grey: return UIColor(hexString: "#2B2E30")
-        case .purple: return UIColor(hexString: "#72708C")
-        case .teal: return UIColor(hexString: "#00A67F")
-        case .blue: return UIColor(hexString: "#4B76CC")
-        case .red: return UIColor(hexString: "#A71D31")
-        case .light: return UIColor(hexString: "#04151F")
-        case .orange: return UIColor(hexString: "#DF663A ")
-        case .btn: return UIColor(hexString: "#04151F").withAlphaComponent(0.3)
+        case .white: return UIColor(hexString: "#F4F5F9")
+        case .blue: return UIColor(hexString: "#927F8A")
+        case .bg: return UIColor(hexString: "#35394C")
+        case .red: return UIColor(hexString: "#EA3E49")
         }
     }
 }

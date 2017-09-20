@@ -12,27 +12,21 @@ class CalculatorBtn: UIButton {
     
     private var color: UIColor!
     var operation: String!
-    var math: MathOp = .nothing 
-    
-    enum MathOp {
-        case plus, minus, divide, cancel, nothing, equal, openBrac, closeBrac
-    }
-    
     
     func setupView(){
         self.backgroundColor = color
         let text = NSAttributedString(string: operation,
-                                      attributes: [NSAttributedStringKey.font :  UIFont(name: "Futura-Medium", size: 40)!,
-                                                   NSAttributedStringKey.foregroundColor : UIColor.white ])
+                                      attributes: [NSAttributedStringKey.font :  UIFont(name: "AvenirNext-Medium", size: 40)!,
+                                                   NSAttributedStringKey.foregroundColor : Theme.bg.color])
         self.setAttributedTitle(text, for: .normal)
+        self.layer.cornerRadius = 2
     }
     
-    required init(op: String, color: UIColor, tag: Int, math: MathOp = .nothing) {
+    required init(op: String, color: UIColor = Theme.white.color, tag: Int) {
         super.init(frame: .zero)
-        self.tag = tag
         self.color = color
         self.operation = op
-        self.math = math
+        self.tag = tag
         setupView()
     }
     
